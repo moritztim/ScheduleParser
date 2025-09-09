@@ -1,4 +1,8 @@
 {
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"types": ["./types/action.d.ts", "@types/thunderbird-webext-browser"]
+	},
 	"tasks": {
 		"build": "deno bundle --platform browser --minify src/main.ts > build/script.js",
 		"clipboard": {
@@ -8,5 +12,8 @@
 		"clean": "rm -f build/script.js",
 		"start": "deno run src/main.ts",
 		"format": "prettier --write ."
+	},
+	"imports": {
+		"@types/thunderbird-webext-browser": "npm:@types/thunderbird-webext-browser@^127.0.0"
 	}
 }
