@@ -104,7 +104,9 @@ type nsIMsgWindow = {
 	transactionManager: null | object;
 };
 
+/** Message headers */
 declare const msgHdrs: Array<XPCWrappedNative_NoHelper<FilteredMessageHeader>>;
 declare const Ci: any;
 declare const filterType: number;
+/** Message window */
 declare const msgWindow: XPCWrappedNative_NoHelper<nsIMsgWindow>;
