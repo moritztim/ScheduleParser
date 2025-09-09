@@ -1,6 +1,6 @@
 {
 	"tasks": {
-		"build": "deno bundle --minify src/main.ts > build/script.js",
+		"build": "deno bundle --platform browser --minify src/main.ts > build/script.js",
 		"clipboard": {
 			"dependencies": ["build"],
 			"command": "xclip -selection clipboard < build/script.js"
