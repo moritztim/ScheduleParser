@@ -1,6 +1,10 @@
 {
 	"tasks": {
 		"build": "deno bundle --minify src/main.ts > build/script.js",
+		"clipboard": {
+			"dependencies": ["build"],
+			"command": "xclip -selection clipboard < build/script.js"
+		},
 		"clean": "rm -f build/script.js",
 		"start": "deno run src/main.ts",
 		"format": "prettier --write ."
