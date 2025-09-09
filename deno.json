@@ -2,6 +2,7 @@
 	"tasks": {
 		"build": "deno bundle --minify src/main.ts > build/script.js",
 		"clean": "rm -f build/script.js",
-		"start": "deno run src/main.ts"
+		"start": "deno run src/main.ts",
+		"format": "prettier --write ."
 	}
 }
