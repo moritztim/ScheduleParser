@@ -1,9 +1,15 @@
 // deno-lint-ignore-file no-explicit-any
 
+// These types are based on the runtime objects and the FiltaQuilla docs.
+// https://quickfilters.quickfolders.org/filtaquilla.html
+
 type XPCWrappedNative_NoHelper<T> = T & {
 	QueryInterface(): any;
 };
 
+/**
+ * Message header available to filter action scripts
+ */
 type FilteredMessageHeader = Omit<
 	messenger.messages.MessageHeader,
 	| "external"
@@ -51,6 +57,7 @@ type FilteredMessageHeader = Omit<
 	offlineMessageSize: number;
 	orFlags(): any;
 	priority: number;
+	/** Varying order and quantity of properties, some of which are typed here */
 	properties: Array<
 		| "flags"
 		| "sender"
