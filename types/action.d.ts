@@ -1,6 +1,11 @@
 // These types are based on the runtime objects and the FiltaQuilla docs.
 // https://quickfilters.quickfolders.org/filtaquilla.html
 
+interface Queriable<T> {
+	queryElementAt(index: number, iid: unknown): T;
+	length: number;
+}
+
 type XPCWrappedNative_NoHelper<T> = T & {
 	QueryInterface(): unknown;
 };
@@ -103,8 +108,12 @@ type nsIMsgWindow = {
 };
 
 /** Message headers */
-declare const msgHdrs: Array<XPCWrappedNative_NoHelper<FilteredMessageHeader>>;
-declare const Ci: unknown;
+declare const msgHdrs:
+	| Queriable<FilteredMessageHeader>
+	| Array<XPCWrappedNative_NoHelper<FilteredMessageHeader>>;
+declare const Ci: {
+	readonly nsIMsgDBHdr: unknown;
+};
 declare const filterType: number;
 /** Message window */
 declare const msgWindow: XPCWrappedNative_NoHelper<nsIMsgWindow>;
