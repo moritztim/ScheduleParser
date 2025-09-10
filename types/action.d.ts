@@ -1,10 +1,8 @@
-// deno-lint-ignore-file no-explicit-any
-
 // These types are based on the runtime objects and the FiltaQuilla docs.
 // https://quickfilters.quickfolders.org/filtaquilla.html
 
 type XPCWrappedNative_NoHelper<T> = T & {
-	QueryInterface(): any;
+	QueryInterface(): unknown;
 };
 
 /**
@@ -24,9 +22,9 @@ type FilteredMessageHeader = Omit<
 	| "size"
 	| "tags"
 > & {
-	QueryInterface(): any;
+	QueryInterface(): unknown;
 	accountKey: string;
-	andFlags(): any;
+	andFlags(): unknown;
 	charset: string;
 	dateInSeconds: number;
 	effectiveCharset: string;
@@ -34,19 +32,19 @@ type FilteredMessageHeader = Omit<
 	envDate: number;
 	expires: number;
 	flags: number;
-	getAuthorCollationKey(): any;
-	getRecipientsCollationKey(): any;
-	getStringProperty(): any;
-	getStringReference(): any;
-	getSubjectCollationKey(): any;
-	getUint32Property(): any;
+	getAuthorCollationKey(): unknown;
+	getRecipientsCollationKey(): unknown;
+	getStringProperty(): unknown;
+	getStringReference(): unknown;
+	getSubjectCollationKey(): unknown;
+	getUint32Property(): unknown;
 	isFlagged: boolean;
 	isKilled: boolean;
 	isRead: boolean;
 	lineCount: number;
-	markFlagged(): any;
-	markHasAttachments(): any;
-	markRead(): any;
+	markFlagged(): unknown;
+	markHasAttachments(): unknown;
+	markRead(): unknown;
 	messageId: messenger.messages.MessageId;
 	messageKey: number;
 	messageSize: number;
@@ -55,7 +53,7 @@ type FilteredMessageHeader = Omit<
 	mime2DecodedSubject: string;
 	numReferences: number;
 	offlineMessageSize: number;
-	orFlags(): any;
+	orFlags(): unknown;
 	priority: number;
 	/** Varying order and quantity of properties, some of which are typed here */
 	properties: Array<
@@ -84,9 +82,9 @@ type FilteredMessageHeader = Omit<
 		| string
 	>;
 	rawSubject: string;
-	setReferences(): any;
-	setStringProperty(): any;
-	setUint32Property(): any;
+	setReferences(): unknown;
+	setStringProperty(): unknown;
+	setUint32Property(): unknown;
 	storeToken: `${bigint}`;
 	threadId: number;
 	threadParent: number;
@@ -96,7 +94,7 @@ type FilteredMessageHeader = Omit<
 type ChromeWindow = object;
 
 type nsIMsgWindow = {
-	closeWindow(): any;
+	closeWindow(): unknown;
 	domWindow: ChromeWindow;
 	messageWindowDocShell: object;
 	rootDocShell: null | object;
@@ -106,7 +104,7 @@ type nsIMsgWindow = {
 
 /** Message headers */
 declare const msgHdrs: Array<XPCWrappedNative_NoHelper<FilteredMessageHeader>>;
-declare const Ci: any;
+declare const Ci: unknown;
 declare const filterType: number;
 /** Message window */
 declare const msgWindow: XPCWrappedNative_NoHelper<nsIMsgWindow>;
